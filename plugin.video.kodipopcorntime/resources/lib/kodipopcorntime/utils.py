@@ -31,7 +31,7 @@ def url_get(url, params={}, headers={}):
             data = response.read()
             if response.headers.get("Content-Encoding", "") == "gzip":
                 data = zlib.decompressobj(16 + zlib.MAX_WBITS).decompress(data)
-            if data
+            if data:
                 return json.loads(data)
             raise
     except urllib2.HTTPError, e:
